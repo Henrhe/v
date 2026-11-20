@@ -18,37 +18,22 @@ const sizes = {
 };
 
 export function Button({
-  href,
-  children,
-  variant = "primary",
-  size = "md",
-  className = "",
-  onClick,
-  type = "button",
+  href, children, variant = "primary", size = "md",
+  className = "", onClick, type = "button",
 }: Props) {
   const base = `inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-300 ${sizes[size]}`;
 
   const variants = {
     primary:
-      "bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:shadow-[0_0_30px_-5px_rgba(139,92,246,0.6)] hover:brightness-110",
+      "bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:shadow-[0_0_30px_-5px_rgba(139,92,246,0.5)] hover:brightness-110",
     ghost:
-      "text-zinc-300 hover:text-white hover:bg-white/[0.05] border border-white/[0.08]",
+      "text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200",
     outline:
-      "border border-white/[0.15] text-white hover:bg-white/[0.05] hover:border-white/[0.25]",
+      "border border-slate-300 text-slate-900 hover:bg-slate-50 hover:border-slate-400",
   };
 
   const cls = `${base} ${variants[variant]} ${className}`;
 
-  if (href) {
-    return (
-      <Link href={href} className={cls}>
-        {children}
-      </Link>
-    );
-  }
-  return (
-    <button type={type} onClick={onClick} className={cls}>
-      {children}
-    </button>
-  );
+  if (href) return <Link href={href} className={cls}>{children}</Link>;
+  return <button type={type} onClick={onClick} className={cls}>{children}</button>;
 }

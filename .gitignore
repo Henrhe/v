@@ -30,6 +30,16 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# Ignore SSH keys
+*.pub
+id_*
+[C
+[C.pub
+\[C.pub
+*.pub
+[C.pub
+
+
 # env files (can opt-in for committing if needed)
 .env*
 

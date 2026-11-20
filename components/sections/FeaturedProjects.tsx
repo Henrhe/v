@@ -28,21 +28,14 @@ const projects = [
 
 export function FeaturedProjects() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-24 bg-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-xs font-mono text-violet-400 mb-3 tracking-widest">
-              SELECTED WORK
-            </p>
-            <h2 className="text-4xl font-semibold tracking-tight">
-              Commissioned portfolio
-            </h2>
+            <p className="text-xs font-mono text-violet-600 mb-3 tracking-widest">SELECTED WORK</p>
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900">Commissioned portfolio</h2>
           </div>
-          <Link
-            href="/projects"
-            className="hidden md:flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
-          >
+          <Link href="/projects" className="hidden md:flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 transition-colors">
             Full archive
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M13 5l7 7-7 7" />
@@ -52,38 +45,25 @@ export function FeaturedProjects() {
 
         <div className="grid lg:grid-cols-4 gap-4">
           {projects.map((p) => (
-            <GlassCard
-              key={p.id}
-              className={`${p.span} overflow-hidden group ${p.tall ? "min-h-[420px]" : "min-h-[200px]"}`}
-            >
+            <GlassCard key={p.id} className={`${p.span} overflow-hidden group ${p.tall ? "min-h-[420px]" : "min-h-[200px]"}`}>
               <div className="relative h-full flex flex-col">
-                {/* Image area */}
-                <div className="relative flex-1 min-h-[140px] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.15),transparent_70%)]" />
-                  <div className="absolute inset-0 opacity-[0.04]" style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+                <div className="relative flex-1 min-h-[140px] overflow-hidden bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.12),transparent_70%)]" />
+                  <div className="absolute inset-0 opacity-[0.06]" style={{
+                    backgroundImage: "linear-gradient(rgba(15,23,42,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.5) 1px, transparent 1px)",
                     backgroundSize: "24px 24px",
                   }} />
                   <div className="absolute top-4 left-4">
-                    <span className="text-[10px] font-mono px-2 py-1 rounded-full bg-white/[0.08] border border-white/[0.1] backdrop-blur">
+                    <span className="text-[10px] font-mono px-2 py-1 rounded-full bg-white/80 border border-slate-200 backdrop-blur text-slate-700">
                       {p.tag}
                     </span>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="font-semibold text-white mb-3 group-hover:text-violet-300 transition-colors">
-                    {p.title}
-                  </h3>
+                <div className="p-5 bg-white border-t border-slate-200">
+                  <h3 className="font-semibold text-slate-900 mb-3 group-hover:text-violet-700 transition-colors">{p.title}</h3>
                   <div className="flex flex-wrap gap-1.5">
                     {p.meta.map((m) => (
-                      <span
-                        key={m}
-                        className="text-[10px] font-mono text-zinc-400 px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]"
-                      >
+                      <span key={m} className="text-[10px] font-mono text-slate-600 px-2 py-0.5 rounded bg-slate-50 border border-slate-200">
                         {m}
                       </span>
                     ))}
